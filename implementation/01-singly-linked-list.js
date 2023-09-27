@@ -1,4 +1,4 @@
-// Node class is implemented for you, no need to look for bugs here!
+
 class SinglyLinkedNode {
     constructor(val) {
         this.value = val;
@@ -13,53 +13,52 @@ class SinglyLinkedList {
     }
 
     addToHead(val) {
-        let newNode = SinglyLinkedNode(val)
-        if(!this.length) {
-            this.head = newNode;
-            return this
-        }
+        let newNode = new SinglyLinkedNode(val)
         newNode.next = this.head;
         this.head = newNode;
         this.length++;
-        // Write your hypothesis on the time complexity of this method here
+       return this
     }
 
     addToTail(val) {
-        // There are bugs in this method! Fix them!!!
-
-        // Add node of val to tail of linked list
-        let newNode = new SinglyLinkedNode(data);
-
-        if (!head) {
-            head = newNode;
-            return head;
+        let newNode = new SinglyLinkedNode(val);
+        this.length++;
+        if (!this.head) {
+            this.head = newNode;
+            return this;
         }
-
-        let curr = head;
-        while (curr) {
-            curr = current.next;
+        let curr = this.head;
+        while(curr.next) {
+            curr = curr.next;
         }
         curr.next = newNode;
-
-        return head;
-
-        // Write your hypothesis on the time complexity of this method here
+       return this;
     }
 
     removeFromHead() {
-        // Remove node at head
-
-        // Your code here
-
-        // Write your hypothesis on the time complexity of this method here
+        let currHead = this.head;
+        if(!this.length) {
+            return undefined;
+        }
+        this.length--;
+        this.head = this.head.next
+        return currHead;
+       
     }
 
     removeFromTail() {
-        // Remove node at tail
-
-        // Your code here
-
-        // Write your hypothesis on the time complexity of this method here
+        let currTail;
+        if(this.length === 1) {
+            currTail = this.head
+            this.head = null;
+            return currTail;
+        }
+        let currNode = this.head;
+        while(currNode.next) {
+            currNode = currNode.next
+            currTail = this.value;
+        }
+        console.log(currTail)
     }
 
     peekAtHead() {
